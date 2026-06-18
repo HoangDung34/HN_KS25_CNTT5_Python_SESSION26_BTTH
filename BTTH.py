@@ -6,14 +6,14 @@ class Employee(ABC):
         self.name = name
 
     def display_info(self):
-        print(f"Mã NV: {self.employee_id} | Họ tên: {self.name} | Loại: {self.employee_type}")
+        print(f"Mã NV: {self.employee_id} | Họ tên: {self.name} | Loại: {self.emp}")
 
     @abstractmethod
     def calculate_salary(self):
         pass
 
 class FullTimeEmployee(Employee):
-    employee_type = "Full-time"
+    emp = "Full-time"
 
     def __init__(self, employee_id, name, base_salary, bonus):
         super().__init__(employee_id, name)
@@ -25,7 +25,7 @@ class FullTimeEmployee(Employee):
         return self.base_salary + self.bonus
 
 class PartTimeEmployee(Employee):
-    employee_type = "Part-time"
+    emp = "Part-time"
 
     def __init__(self, employee_id, name, working_hours, hourly_rate):
         super().__init__(employee_id, name)
@@ -37,7 +37,7 @@ class PartTimeEmployee(Employee):
         return self.working_hours * self.hourly_rate
 
 class InternEmployee(Employee):
-    employee_type = "Intern"
+    emp = "Intern"
 
     def __init__(self, employee_id, name, allowance):
         super().__init__(employee_id, name)
